@@ -10,7 +10,7 @@ DB_CONFIG = {
     'port': 5432,
     'database': 'scrapnalyze',
     'user': 'postgres',
-    'password': '1234'  # Replace with your actual password
+    'password': ''  # Replace with your actual password
 }
 
 BASE_URL = "https://www.myjob.mu/ShowResults.aspx?Keywords=&Location=&Category="
