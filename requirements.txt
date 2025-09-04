@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+scikit-learn
+scipy
+plotly
+requests
+beautifulsoup4
+psycopg2-binary
+mysql-connector-python

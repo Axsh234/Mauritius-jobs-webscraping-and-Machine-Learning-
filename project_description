@@ -1,0 +1,127 @@
+1. Loading the Dataset
+
+The first step is to read your job postings data into the program. This data contains information like:
+
+Job title
+Salary
+Location
+Date posted
+Closing date
+
+Think of this as the raw material. Before any analysis or machine learning, the computer needs to know what jobs exist, where they are, and how much they pay.
+
+2. Feature Engineering (Preparing Data for Clustering)
+
+Machine learning models cannot understand words directly—they only understand numbers. So we need to convert job titles and locations into numbers in a meaningful way.
+
+Job Titles → TF-IDF
+TF-IDF stands for Term Frequency–Inverse Document Frequency.
+Logic: It gives a score to each word in a job title depending on:
+How often it appears in that title (term frequency)
+How rare it is across all titles (inverse document frequency)
+Words that appear a lot in one title but are rare overall get higher scores.
+Common words like "manager" or "engineer" are ignored because they appear in many jobs and don't help distinguish them.
+
+Result: Each job title becomes a long list of numbers, one for each word/phrase, showing its importance in that title.
+
+Location → One-Hot Encoding
+Locations are text (like “Port Louis”). To use them in math, we create a series of 0s and 1s:
+
+If a job is in “Port Louis,” the column for that location is 1; other location columns are 0.
+Scaling ensures that location numbers don’t dominate or get ignored compared to the TF-IDF numbers.
+
+Combining Features
+
+We merge job title numbers and location numbers into one big table.
+This is what the KMeans algorithm will use to figure out which jobs are similar.
+
+3. KMeans Clustering
+
+Clustering is about grouping jobs that are similar without knowing the answer in advance.
+How KMeans works (logic, no formulas):
+Decide how many groups (clusters) you want, e.g., 5.
+Randomly pick 5 points in the feature space as "centers."
+Assign each job to the center it is closest to (distance in high-dimensional space, using Euclidean distance usually).
+“Distance” is just a measure of similarity: closer means more similar.
+Move each center to the average position of all jobs assigned to it.
+Repeat steps 3–4 until the groups stop changing much.
+Result: Jobs are divided into clusters where each cluster contains jobs that have similar titles and locations.
+
+4. Cluster Evaluation Metrics
+
+After clustering, we need to check how good the groups are.
+Silhouette Score: Measures how close jobs in the same cluster are compared to jobs in other clusters.
+Range: -1 to 1, higher is better.
+Example: If a “Data Analyst” cluster has very similar jobs and far from “Sales” jobs, it gets a high score.
+Calinski-Harabasz Index: Looks at variance between clusters vs variance within clusters.
+If clusters are tight and far from each other, the score is high.
+Davies-Bouldin Index: Measures similarity between clusters.
+Lower values are better, meaning clusters are more distinct.
+These metrics give an idea if the clustering makes sense mathematically.
+
+5. Silhouette Visualization
+
+We also show a boxplot of silhouette scores per cluster.
+This helps you see if some clusters have jobs that don’t fit well.
+Outliers with very low silhouette values may not belong in that cluster.
+
+6. Salary Analysis
+
+Several visualizations are done:
+Average salary by location: Shows which areas pay more.
+Salary distribution across jobs: Shows the frequency of jobs in different salary ranges.
+Y-axis = number of jobs in each salary range.
+Boxplot shows outliers (very high or low salaries).
+Salary by cluster: Shows which job groups are higher paying.
+Salary by month: Detects seasonal trends (e.g., higher-paying jobs in certain months).
+
+7. Top Keywords per Cluster
+
+We look at the most important words in job titles for each cluster.
+For example, a cluster might have “developer, python, backend,” which tells you that cluster contains mostly software developer jobs.
+Mathematical Logic Behind ML Components (Simplified)
+
+TF-IDF (titles)
+
+Converts text to numbers by checking frequency and uniqueness of words.
+Helps measure “importance” of each word.
+One-Hot Encoding (location)
+Converts categories into numbers without implying order.
+Scaling
+Ensures different features (title vs location) contribute equally.
+
+KMeans
+
+Uses the concept of distance in multi-dimensional space.
+Iteratively finds cluster centers that minimize the distance between points in the same cluster.
+
+Evaluation Metrics
+
+Measure how tight and separate the clusters are, so we know the algorithm grouped jobs well.
+
+In essence, your dashboard is a pipeline:
+
+Clean and prepare data → TF-IDF for titles + one-hot for locations
+Cluster similar jobs → KMeans finds natural groupings
+Evaluate clusters → Silhouette, Calinski-Harabasz, Davies-Bouldin
+Visualize results → Salaries, trends, top keywords
+
+All of this is done without telling the model what the clusters should be—this is called unsupervised learning. The math is basically about counting, averaging, and measuring distances in a space defined by job title words and locations.
+
+Dashboard uses KMeans clustering to group similar jobs based on two key features:
+
+TF-IDF (Term Frequency–Inverse Document Frequency) transforms job titles into numerical vectors that highlight important keywords, reducing the weight of very common terms.
+
+One-Hot Encoding + StandardScaler converts job locations into numerical form while normalizing the data.
+
+These features are combined into a single matrix and fed into KMeans, which partitions jobs into clusters where jobs within the same group are more similar in terms of title and location.
+
+To evaluate cluster quality, the app uses three metrics:
+
+Silhouette Score (closer to 1 means better separation of clusters).
+
+Calinski-Harabasz Index (higher indicates clearer cluster separation).
+
+Davies-Bouldin Index (lower means clusters are less overlapping).
+
+On top of clustering, the app provides salary insights by analyzing distributions, averages by location, trends across months, and salary statistics within clusters. It also extracts the top keywords per cluster to give an interpretable summary of what each cluster represents.

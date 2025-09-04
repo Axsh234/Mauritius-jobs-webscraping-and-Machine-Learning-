@@ -1,0 +1,47 @@
+Has two web scraper one for gov.mu and the other for myjob.mu for educational purposes
+Hence we are using myjob.mu for data cleaning preprocessing and apply unsupervised ml models k means clustering
+
+The scraper is designed to collect job postings from the website myjob.mu, save them locally in a CSV file, and also insert them into a PostgreSQL database. It automates the process of visiting multiple job listing pages, extracting structured data, and storing it for further analysis.
+
+Configuration:
+
+It sets up a PostgreSQL database connection using credentials in DB_CONFIG.
+A base URL of the job search page and browser-like HTTP headers (via a User-Agent) are defined to avoid being blocked by the website.
+
+Pagination Handling (get_total_pages):
+The scraper first loads the first results page and looks for the pagination block (<ul id="pagination">).
+It extracts all page numbers from the pagination links and determines the total number of pages available.
+
+Page Scraping (scrape_jobs_from_page):
+For each page, it makes a GET request using the requests library and parses the HTML with BeautifulSoup.
+It locates job posting blocks (div.module.job-result) and extracts relevant details:
+
+Title and link to the job description.
+Salary (if displayed).
+Date Posted.
+Location.
+Closing Date.
+
+Each job is stored as a Python dictionary and collected into a list.
+
+Saving to CSV (save_to_csv):
+
+After scraping, the script writes all collected jobs into a CSV file (myjob.csv).
+It uses Python’s built-in csv.DictWriter to store column-based structured data for easy later use.
+
+Database Insertion (insert_into_db):
+
+The scraper connects to the PostgreSQL database using psycopg2.
+It inserts each job record into the myjob table with a parameterized SQL query.
+The ON CONFLICT DO NOTHING clause prevents duplicate entries if the same job appears again.
+After committing all inserts, the connection is closed.
+
+Main Workflow (main function):
+
+The scraper starts with the first page, determines how many pages exist, and loops through all pages sequentially.
+It scrapes jobs from each page, adds them to a combined job list, and introduces a 1-second delay between requests (time.sleep(1)) to be polite to the server and reduce the risk of being blocked.
+
+Once all pages are scraped, it saves the results both to CSV and PostgreSQL.
+
+ In short:
+ Scraper is a web crawler + ETL pipeline. It extracts job listings from myjob.mu, transforms them into structured Python dictionaries, and loads the data into CSV (local storage) and PostgreSQL (database storage). This makes it ready for further processing, analytics, or feeding into dashboards like Streamlit clustering app.

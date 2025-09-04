@@ -1,0 +1,45 @@
+2025-09-04 13:36:19,864 [INFO] Total pages found: 13
+2025-09-04 13:36:19,864 [INFO] Processing page 1: https://mauritiusjobs.govmu.org/
+2025-09-04 13:36:20,273 [INFO] Found 25 jobs on page 1
+2025-09-04 13:36:20,298 [INFO] ➕ Added new: 46028 | Laboratory Assistant
+2025-09-04 13:36:20,311 [INFO] ➕ Added new: 46027 | Control Room Technician
+2025-09-04 13:36:20,321 [INFO] ➕ Added new: 46026 | Patrol Intervention Agent
+2025-09-04 13:36:20,332 [INFO] ➕ Added new: 46025 | Property Officer
+2025-09-04 13:36:20,338 [INFO] ➕ Added new: 46024 | Alarm Security Technician
+2025-09-04 13:36:20,351 [INFO] ➕ Added new: 46023 | Building Construction Labourer/Mason Helper
+2025-09-04 13:36:20,363 [INFO] ➕ Added new: 46022 | Mason
+2025-09-04 13:36:20,374 [INFO] ➕ Added new: 46021 | Plumber and Pipe Fitter, General
+2025-09-04 13:36:20,387 [INFO] ➕ Added new: 46020 | Electrical Technician
+2025-09-04 13:36:20,396 [INFO] ➕ Added new: 46019 | Loader / Unloader
+2025-09-04 13:36:21,599 [INFO] Processing page 2: https://mauritiusjobs.govmu.org/?page=2
+2025-09-04 13:36:22,211 [INFO] Found 25 jobs on page 2
+2025-09-04 13:36:23,428 [INFO] Processing page 3: https://mauritiusjobs.govmu.org/?page=3
+2025-09-04 13:36:23,917 [INFO] Found 25 jobs on page 3
+2025-09-04 13:36:25,152 [INFO] Processing page 4: https://mauritiusjobs.govmu.org/?page=4
+2025-09-04 13:36:25,657 [INFO] Found 25 jobs on page 4
+2025-09-04 13:36:26,897 [INFO] Processing page 5: https://mauritiusjobs.govmu.org/?page=5
+2025-09-04 13:36:27,308 [INFO] Found 25 jobs on page 5
+2025-09-04 13:36:28,506 [INFO] Processing page 6: https://mauritiusjobs.govmu.org/?page=6
+2025-09-04 13:36:29,002 [INFO] Found 25 jobs on page 6
+2025-09-04 13:36:30,228 [INFO] Processing page 7: https://mauritiusjobs.govmu.org/?page=7
+2025-09-04 13:36:30,709 [INFO] Found 25 jobs on page 7
+2025-09-04 13:36:31,910 [INFO] Processing page 8: https://mauritiusjobs.govmu.org/?page=8
+2025-09-04 13:36:32,322 [INFO] Found 25 jobs on page 8
+2025-09-04 13:36:32,428 [INFO] ➕ Added new: 43982 | Loader / Unloader
+2025-09-04 13:36:33,546 [INFO] Processing page 9: https://mauritiusjobs.govmu.org/?page=9
+2025-09-04 13:36:33,974 [INFO] Found 25 jobs on page 9
+2025-09-04 13:36:35,191 [INFO] Processing page 10: https://mauritiusjobs.govmu.org/?page=10
+2025-09-04 13:36:35,752 [INFO] Found 25 jobs on page 10
+2025-09-04 13:36:36,981 [INFO] Processing page 11: https://mauritiusjobs.govmu.org/?page=11
+2025-09-04 13:36:37,495 [INFO] Found 25 jobs on page 11
+2025-09-04 13:36:37,550 [INFO] ➕ Added new: 39502 | Gardener
+2025-09-04 13:36:37,559 [INFO] ➕ Added new: 39501 | Factory Worker
+2025-09-04 13:36:38,731 [INFO] Processing page 12: https://mauritiusjobs.govmu.org/?page=12
+2025-09-04 13:36:39,245 [INFO] Found 25 jobs on page 12
+2025-09-04 13:36:39,460 [INFO] ➕ Added new: 14792 | Operations Clerk
+2025-09-04 13:36:39,460 [INFO] ➕ Added new: 12342 | Helper
+2025-09-04 13:36:40,477 [INFO] Processing page 13: https://mauritiusjobs.govmu.org/?page=13
+2025-09-04 13:36:40,887 [INFO] Found 4 jobs on page 13
+2025-09-04 13:36:40,919 [INFO] ➕ Added new: 5854 | Lorry Driver, Heavy
+2025-09-04 13:36:41,946 [INFO] ✅ New jobs: 16, Existing: 288, Removed: 0
+2025-09-04 13:36:41,946 [INFO] 🎉 Done — logs and CSVs saved.
